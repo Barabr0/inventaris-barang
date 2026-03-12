@@ -75,7 +75,7 @@
             @forelse ($barang_masuk as $a)
               <tr>
                 <td>{{ $no++ }}</td>
-                <td>{{ $a->barang->nama_barang ?? '-' }}</td>
+                <td>{{ $a->barang->nama_barang ?? '-' }} {{$a->barang->merk}}</td>
                 <td>{{ $a->jumlah }}</td>
                 <td>{{ $a->keterangan }}</td>
                 <td>{{ $a->tanggal }}</td>

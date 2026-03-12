@@ -14,7 +14,9 @@ class AdminDashboardController extends Controller
     {
         $usercount = \App\Models\User::count();
         $barangcount = \App\Models\Barang::count();
-        return view('admin.dashboard', compact('usercount', 'barangcount'));
+        $userlatest = \App\Models\User::latest()->take(5)->get();
+        $baranglatest = \App\Models\Barang::latest()->take(5)->get();
+        return view('admin.dashboard', compact('usercount', 'barangcount', 'userlatest', 'baranglatest'));
     }
 
     /**

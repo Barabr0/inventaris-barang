@@ -54,7 +54,7 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>{{ $a->nama_peminjam }}</td>
-                            <td>{{ $a->barang->nama_barang }}</td>
+                            <td>{{ $a->barang->nama_barang }} {{$a->barang->merk}}</td>
                             <td>{{ $a->jumlah }}</td>
                             <td>{{ $a->tanggal_pinjam }}</td>
                             <td>{{ $a->tanggal_kembali }}</td>

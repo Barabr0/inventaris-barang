@@ -52,13 +52,27 @@ class BarangKeluarController extends Controller
     'jumlah'     => 'required|integer|min:1',
     'keterangan' => 'required|string|max:255',
     'tanggal'    => 'required|date|before_or_equal:today',
+],[
+    'barang_id.required' => 'Barang harus dipilih',
+    'barang_id.exists'   => 'Barang tidak valid',
+    'jumlah.required'    => 'Jumlah harus diisi',
+    'jumlah.integer'     => 'Jumlah harus berupa angka',
+    'jumlah.min'         => 'Jumlah harus minimal 1',
+    'keterangan.required'=> 'Keterangan harus diisi',
+    'keterangan.string'  => 'Keterangan harus berupa teks',
+    'keterangan.max'     => 'Keterangan maksimal 255 karakter',
+    'tanggal.required'   => 'Tanggal harus diisi',
+    'tanggal.date'       => 'Tanggal tidak valid',
+    'tanggal.before_or_equal' => 'Tanggal tidak boleh di masa depan',
 ]);
 
 $barang = barang::findOrFail($request->barang_id);
 $jumlahkeluar = $request->jumlah;
 
 if ($barang->stok < $jumlahkeluar) {
-    return back()->with('error', 'Stok tidak cukup');
+    return back()
+        ->withErrors(['jumlah' => 'Stok tidak mencukupi. Stok tersedia: '.$barang->stok])
+        ->withInput();
 }
 
 $barang->stok -= $jumlahkeluar;

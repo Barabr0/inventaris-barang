@@ -36,7 +36,7 @@
                                 @foreach ($barang as $b)
                                     <option value="{{ $b->id }}"
                                         {{ $barangmasuk->barang_id == $b->id ? 'selected' : '' }}>
-                                        {{ $b->nama_barang }}
+                                        {{ $b->nama_barang }}(Stok: {{ $b->stok }} & {{ $b->merk }})
                                     </option>
                                 @endforeach
                             </select>

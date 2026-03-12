@@ -54,6 +54,18 @@ public function store(Request $request)
         'jumlah'     => 'required|integer|min:1',
         'keterangan' => 'required|string|max:255',
         'tanggal'    => 'required|date|before_or_equal:today',
+    ],[
+        'barang_id.required' => 'Barang harus dipilih.',
+        'barang_id.exists' => 'Barang yang dipilih tidak valid.',
+        'jumlah.required' => 'Jumlah barang masuk harus diisi.',
+        'jumlah.integer' => 'Jumlah barang masuk harus berupa angka.',
+        'jumlah.min' => 'Jumlah barang masuk harus minimal 1.',
+        'keterangan.required' => 'Keterangan harus diisi.',
+        'keterangan.string' => 'Keterangan harus berupa teks.',
+        'keterangan.max' => 'Keterangan tidak boleh lebih dari 255 karakter.',
+        'tanggal.required' => 'Tanggal harus diisi.',
+        'tanggal.date' => 'Tanggal tidak valid.',
+        'tanggal.before_or_equal' => 'Tanggal tidak boleh di masa depan.',
     ]);
 
     DB::transaction(function () use ($request) {
@@ -103,6 +115,18 @@ public function store(Request $request)
         'jumlah'     => 'required|integer|min:1',
         'keterangan' => 'required|string|max:255',
         'tanggal'    => 'required|date|before_or_equal:today',
+    ],[
+        'barang_id.required' => 'Barang harus dipilih.',
+        'barang_id.exists' => 'Barang yang dipilih tidak valid.',
+        'jumlah.required' => 'Jumlah barang masuk harus diisi.',
+        'jumlah.integer' => 'Jumlah barang masuk harus berupa angka.',
+        'jumlah.min' => 'Jumlah barang masuk harus minimal 1.',
+        'keterangan.required' => 'Keterangan harus diisi.',
+        'keterangan.string' => 'Keterangan harus berupa teks.',
+        'keterangan.max' => 'Keterangan tidak boleh lebih dari 255 karakter.',
+        'tanggal.required' => 'Tanggal harus diisi.',
+        'tanggal.date' => 'Tanggal tidak valid.',
+        'tanggal.before_or_equal' => 'Tanggal tidak boleh di masa depan.',
     ]);
          DB::transaction(function () use ($request, $barangmasuk) {
 

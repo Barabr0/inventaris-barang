@@ -28,7 +28,7 @@
                                     <select class="form-select" id="inputGroupSelect01" name="barang_id">
                                         <option selected disabled>Pilih...</option>
                                         @foreach ($barang as $a)
-                                        <option value="{{$a->id}}" name="barang_id">{{$a->nama_barang}}</option>
+                                        <option value="{{$a->id}}" name="barang_id">{{$a->nama_barang}}(Stok : {{$a->stok}} & {{$a->merk}})</option>
                                         @endforeach
                                     </select>
                                 </div>
