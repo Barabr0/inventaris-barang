@@ -91,13 +91,6 @@
                               <a href="{{ route('barangmasuk.show', $a->id) }}" class="dropdown-item text-dark">
                                 <i class="bx bx-show-alt me-1"></i> Show
                               </a>
-                              <form action="{{ route('barangmasuk.destroy', $a->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus barang ini?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="dropdown-item text-danger">
-                                  <i class="bx bx-trash me-1"></i> Delete
-                                </button>
-                              </form>
                             </div>
                     </div>
                 </td>

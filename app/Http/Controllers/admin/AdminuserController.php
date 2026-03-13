@@ -62,6 +62,8 @@ class AdminuserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->route('admin.user.index')->with('success', 'USer berhasil dihapus');
     }
 }

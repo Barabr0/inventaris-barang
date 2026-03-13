@@ -78,6 +78,6 @@ Route::get('/admin/barangkeluar', [AdminbarangkeluarController::class,'index'])
 Route::get('/admin/peminjaman', [AdminpeminjamanController::class,'index'])
     ->name('admin.peminjamanadmin')
     ->middleware('auth');
-Route::get('/admin/user', [AdminuserController::class,'index'])
-    ->name('admin.useradmin')
-    ->middleware('auth');
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::resource('user', AdminuserController::class);
+});

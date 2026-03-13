@@ -44,7 +44,7 @@
                     <i class="fas fa-handshake mr-3 w-5"></i>
                     <span>Peminjaman</span>
                 </a>
-              <a href="{{ route('admin.useradmin') }}"
+              <a href="{{ route('admin.user.index') }}"
                 class="flex items-center py-3 px-4 rounded-xl
                 {{ request()->routeIs('admin.useradmin') ? 'bg-accent/10 text-accent border border-accent/20' : 'hover:bg-secondary hover:text-white' }} transition-all">
                     <i class="fas fa-user mr-3 w-5"></i>

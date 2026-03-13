@@ -22,6 +22,7 @@
                         <th class="px-6 py-4">Kategori</th>
                         <th class="px-6 py-4 text-center">Stok</th>
                         <th class="px-6 py-4">Merk</th>
+                        <th class="px-6 py-4">Aksi</th>
                     </tr>
                 </thead>
 
@@ -73,6 +74,16 @@
 
                     <td class="px-6 py-4 text-sm text-slate-500">
                         {{ $b->merk }}
+                    </td>
+                    <td class="px-6 py-4 text-sm text-slate-500">
+                        <form action="{{ route('barang.destroy', $b->id) }}" method="POST"
+                            onsubmit="return confirm('Yakin hapus?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="text-red-500 hover:text-red-700 transition-colors">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
+                      </form>
                     </td>
                 </tr>
                 @endforeach

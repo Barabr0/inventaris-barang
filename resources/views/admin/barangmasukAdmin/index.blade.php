@@ -21,6 +21,7 @@
 <th class="px-6 py-4">Barang</th>
 <th class="px-6 py-4">Jumlah</th>
 <th class="px-6 py-4">Tanggal</th>
+<th class="px-6 py-4">Aksi</th>
 </tr>
 </thead>
 
@@ -46,7 +47,16 @@
 <td class="px-6 py-4 text-slate-500">
 {{ $data->tanggal }}
 </td>
-
+<td class="px-6 py-4 text-sm text-slate-500">
+                        <form action="{{ route('barangmasuk.destroy', $data->id) }}" method="POST"
+                            onsubmit="return confirm('Yakin hapus?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="text-red-500 hover:text-red-700 transition-colors">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
+                      </form>
+                    </td>
 </tr>
 
 @endforeach
